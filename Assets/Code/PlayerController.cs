@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Rigidbody2D rgBody;
     private float movementSpeed = 100f;
+    SpriteRenderer renderer;
 
 
 
@@ -17,13 +18,14 @@ public class PlayerController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         rgBody = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
+       
         Vector2 movementForce = Vector2.zero;
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        
     }
 
 
