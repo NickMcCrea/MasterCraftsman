@@ -2,21 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LayerController : MonoBehaviour {
-    
-    SpriteRenderer renderer;
+public class LayerController : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
+    SpriteRenderer spriteRenderer;
+    ParticleSystemRenderer[] particleSystems;
 
-        renderer = GetComponent<SpriteRenderer>();
-       
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
 
-        renderer.sortingOrder = Mathf.RoundToInt(transform.position.y * 100f) * -1;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        particleSystems = GetComponentsInChildren<ParticleSystemRenderer>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (spriteRenderer != null)
+            spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * 100f) * -1;
+
+        foreach (ParticleSystemRenderer s in particleSystems)
+        {
+            s.sortingOrder = Mathf.RoundToInt(transform.position.y * 100f) * -1;
+        }
 
     }
 }
