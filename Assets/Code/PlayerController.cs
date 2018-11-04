@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
     Rigidbody2D rgBody;
-    private float movementSpeed = 100f;
+    private float movementSpeed = 200f;
     SpriteRenderer renderer;
 
 
